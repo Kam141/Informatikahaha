@@ -15,15 +15,19 @@ public class SisUtama2 {
     static int randomToken = 0;
     static String rekTujuan = " ";
     static int trf = 0;
-    static String kodeBank;
     static int pilihBank;
-    
+    static int ulangMenu = 1;
+    static int ulangAwal = 1;
+    static int cobaLogin = 1;
+
     // Kode untuk transfer % tagihan topup
     static String kodeTfBank[] = { "002", "009", "451", "008", "114", "601", "622" };
     static String kodeNohp[] = { "08" };
     static String[] kodeTopUp = { "09110", "70001", "39358", "89308", "89508" };
     static String[] noRekUser = { "121212121212", "232323232323", "343434343434" };
-    static int [] digitBank = {15,10,10,13,10,10,16,12};
+    static int[] digitBank = { 15, 10, 10, 13, 10, 10, 16, 12 };
+    static String[] namaBank = { "Bank BRI", "Bank BNI", "Bank BSI", "Bank Mandiri", "Bank Jatim", "Bank BCA",
+            "Sesama Bank" };
     // Tagihan Listrik
     static int kWH, daya, biaya, total = 0;
     static int admin = 2000;
@@ -78,7 +82,7 @@ public class SisUtama2 {
 
                     String newUser[][] = new String[userID.length + 1][userID[0].length];
                     int newSaldo[] = new int[saldo.length + 1];
-    
+
                     for (int i = 0; i < userID.length; i++) {
                         for (int j = 0; j < userID[i].length; j++) {
                             newUser[i][j] = userID[i][j];
@@ -88,7 +92,7 @@ public class SisUtama2 {
 
                     newUser[userID.length][0] = nama;
                     newUser[userID.length][1] = pinDaftar;
-    
+
                     userID = newUser;
                     saldo = newSaldo;
 
@@ -147,10 +151,10 @@ public class SisUtama2 {
                                     cobaan++;
                                 }
                             } else {
-                                    System.out.println();
-                                    System.out.println("=====================================");
-                                    System.out.println("|      Username Anda Salah :(       |");
-                                    System.out.println("=====================================");
+                                System.out.println();
+                                System.out.println("=====================================");
+                                System.out.println("|      Username Anda Salah :(       |");
+                                System.out.println("=====================================");
                                 cobaan++;
                             }
                             // menu
@@ -240,144 +244,36 @@ public class SisUtama2 {
                                         pilihBank = sc1.nextInt();
 
                                         if (pilihBank == 1) {
-                                            int noBank = -2;
-                                            while (noBank == -2) {
-                                                System.out.println("");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|                            Bank BRI                       |");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|              Gunakan Kode Bank Di 3 Angka Awal            |");
-                                                System.out.println("|___________________________________________________________|");
-                                                System.out.print("| Masukkan Nomor Rekening Tujuan (15 Digit) : ");
-                                                rekTujuan = input1.nextLine();
-                                                System.out.println("|___________________________________________________________|");
 
-                                                bank(kodeBank, pilihBank, noBank, trf, digitBank);
-
-                                            }
-                                            perulnaganDanUcapan(ulangMenu, username, noBank);
+                                            transferBank(namaBank, username);
 
                                         } else if (pilihBank == 2) {
-                                            int noBank = -2;
-                                            while (noBank == -2) {
-                                                System.out.println("");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|                            Bank BNI                       |");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|              Gunakan Kode Bank Di 3 Angka Awal            |");
-                                                System.out.println("|___________________________________________________________|");
-                                                System.out.print("| Masukkan Nomor Rekening Tujuan (10 Digit) : ");
-                                                rekTujuan = input1.nextLine();
-                                                System.out.println("|___________________________________________________________|");
 
-                                                bank(kodeBank, pilihBank, noBank, trf, digitBank);
-                                            }
-
-                                            perulnaganDanUcapan(ulangMenu, username,noBank);
+                                            transferBank(namaBank, username);
 
                                         } else if (pilihBank == 3) {
-                                            int noBank = -2;
-                                            while (noBank == -2) {
-                                                System.out.println("");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|                            Bank BSI                       |");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|              Gunakan Kode Bank Di 3 Angka Awal            |");
-                                                System.out.println("|___________________________________________________________|");
-                                                System.out.print("| Masukkan Nomor Rekening Tujuan (10 Digit) : ");
-                                                rekTujuan = input1.nextLine();
-                                                System.out.println("|___________________________________________________________|");
 
-                                                bank(kodeBank, pilihBank, noBank, trf, digitBank);
-                                            }
-
-                                           perulnaganDanUcapan(ulangMenu, username, noBank);
-
+                                            transferBank(namaBank, username);
 
                                         } else if (pilihBank == 4) {
-                                            int noBank = -2;
-                                            while (noBank == -2) {
-                                                System.out.println("");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|                          Bank Mandiri                     |");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|              Gunakan Kode Bank Di 3 Angka Awal            |");
-                                                System.out.println("|___________________________________________________________|");
-                                                System.out.print("| Masukkan Nomor Rekening Tujuan (13 Digit) : ");
-                                                rekTujuan = input1.nextLine();
-                                                System.out.println("|___________________________________________________________|");
 
-                                                bank(kodeBank, pilihBank, noBank, trf, digitBank);
-                                            }
-
-                                           perulnaganDanUcapan(ulangMenu, username, noBank);
+                                            transferBank(namaBank, username);
 
                                         } else if (pilihBank == 5) {
-                                            int noBank = -2;
-                                            while (noBank == -2) {
-                                                System.out.println("");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|                        Bank Bank Jatim                    |");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|              Gunakan Kode Bank Di 3 Angka Awal            |");
-                                                System.out.println("|___________________________________________________________|");
-                                                System.out.print("| Masukkan Nomor Rekening Tujuan (10 Digit) : ");
-                                                rekTujuan = input1.nextLine();
-                                                System.out.println("|___________________________________________________________|");
 
-                                                bank(kodeBank, pilihBank, noBank, trf, digitBank);
-                                            }
-
-                                            perulnaganDanUcapan(ulangMenu, username, noBank);
+                                            transferBank(namaBank, username);
 
                                         } else if (pilihBank == 6) {
-                                            int noBank = -2;
-                                            while (noBank == -2) {
-                                                    System.out.println("");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|                            Bank BCA                       |");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|              Gunakan Kode Bank Di 3 Angka Awal            |");
-                                                System.out.println("|___________________________________________________________|");
-                                                System.out.print("| Masukkan Nomor Rekening Tujuan (10 Digit) : ");
-                                                rekTujuan = input1.nextLine();
-                                                System.out.println("|___________________________________________________________|");
 
-                                                bank(kodeBank, pilihBank, noBank, trf, digitBank);
-                                            }
-                                            perulnaganDanUcapan(ulangMenu, username, noBank);
+                                            transferBank(namaBank, username);
 
                                         } else if (pilihBank == 7) {
-                                            int noBank = -2;
-                                            while (noBank == -2) {
-                                                System.out.println("");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|                            Bank BTN                       |");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|              Gunakan Kode Bank Di 3 Angka Awal            |");
-                                                System.out.println("|___________________________________________________________|");
-                                                System.out.print("| Masukkan Nomor Rekening Tujuan (16 Digit) : ");
-                                                rekTujuan = input1.nextLine();
-                                                System.out.println("|___________________________________________________________|");
 
-                                                bank(pin, pilihBahasa, noBank, transaksi, digitBank);
-                                            }
-                                           perulnaganDanUcapan(ulangMenu, username, noBank);
+                                            transferBank(namaBank, username);
 
                                         } else if (pilihBank == 8) {
-                                            int noBank = -2;
-                                            while (noBank == -2) {
-                                                System.out.println("");
-                                                System.out.println("=============================================================");
-                                                System.out.println("|                        Sesama Rekening                    |");
-                                                System.out.println("=============================================================");
-                                                System.out.print("| Masukkan Nomor Rekening Tujuan (12 Digit) : ");
-                                                rekTujuan = input1.nextLine();
-                                                System.out.println("|___________________________________________________________|");
 
-                                                bank(kodeBank, pilihBank, noBank, trf, digitBank);
-                                            }
-                                            perulnaganDanUcapan(ulangMenu, username, noBank);
+                                            transferBank(namaBank, username);
                                         }
                                         // pembayaran tagihan
                                     } else if (pilih == 4) {
@@ -1043,7 +939,7 @@ public class SisUtama2 {
         System.out.println();
         System.out.println("             STRUK TRANSFER            ");
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
-        System.out.printf("| Nomer Rekening   : %-22s |", rekTujuan2 );
+        System.out.printf("| Nomer Rekening   : %-22s |", rekTujuan2);
         System.out.printf("\n| Nominal Transfer : %-22d |", trf);
         System.out.printf("\n| Sisa saldo anda  : %-22d |", saldo[login]);
         System.out.println("\n+++++++++++++++++++++++++++++++++++++++++++++");
@@ -1063,50 +959,61 @@ public class SisUtama2 {
         System.out.println("|++++++++++++++++++++++++++++++++++++++|");
     }
 
-    public static void bank(String kodeBank, int pilihBank, int noBank, int trf, int[] digitBank) {
+    public static void transferBank(String namaBank[], String username) {
+        int noBank = -2;
+        while (noBank == -2) {
+            System.out.println("");
+            System.out.println("=========================================================");
+            System.out.printf("| \t\t %-25s \t\t|", namaBank[pilihBank - 1]);
+            System.out.println("\n=========================================================");
+            System.out.println("|          Gunakan Kode Bank Di 3 Angka Awal            |");
+             System.out.println("|______________________________________________________|");
+            System.out.print("| Masukkan Nomor Rekening Tujuan " + digitBank[pilihBank - 1] + " : ");
+            rekTujuan = input1.nextLine();
+            System.out.println("|______________________________________________________|");
 
-        if (rekTujuan.length() == digitBank[pilihBank-1]) {
-        kodeBank = rekTujuan.substring(0, 3);
+            if (rekTujuan.length() == digitBank[pilihBank - 1]) {
+                String kodeBank = rekTujuan.substring(0, 3);
 
-        boolean valid = false;
-        for (int j = 0; j < kodeTfBank.length; j++) {
-            if (kodeBank.equals(kodeTfBank[pilihBank-1])) {
-                valid = true;
-                break;
-            }
-        }
-            if (valid) {
-                System.out.println("Nomor Valid");
-                noBank = 2;
+                boolean valid = false;
+                for (int j = 0; j < kodeTfBank.length; j++) {
+                    if (kodeBank.equals(kodeTfBank[pilihBank - 1])) {
+                        valid = true;
+                        break;
+                    }
+                }
+                if (valid) {
+                    System.out.println("Nomor Valid");
+                    noBank = 2;
+                } else {
+                    System.out.println("Kode Bank Tidak Valid");
+                }
             } else {
-                System.out.println("Kode Bank Tidak Valid");
+                System.out.println("Nomor Tidak Valid");
             }
-        } else {
-            System.out.println("Nomor Tidak Valid");
         }
-    }
-    
-    public static void perulnaganDanUcapan(int ulangMenu, String username, int noBank) {
-        
-        noBank=2;
+
         System.out.print("Masukkan Nominal Transfer : ");
         trf = sc1.nextInt();
-    
+
         if (saldo[login] > trf) {
             saldo[login] -= trf;
             System.out.println("Tranfer Sejumlah " + trf + " Berhasil");
             System.out.println("Sisa Saldo \t : " + saldo[login]);
             strukTransfer(rekTujuan, trf, saldo);
         } else {
-        System.out.println("Saldo Tidak Mencukupi");
+            System.out.println("Saldo Tidak Mencukupi");
         }
+
         System.out.println("Apakah Anda Ingin Lanjut? (y/n): ");
         char hentiTf = sc1.next().charAt(0);
 
         if (hentiTf != 'y') {
             ulangMenu = 1;
+            ulangAwal = 1;
+            cobaLogin = 1;
+            login = 1;
             ucapan(username);
         }
     }
-                                        
 }
