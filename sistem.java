@@ -964,7 +964,6 @@ public class sistem {
     }
     
     public static void perulnaganDanUcapan(int ulangMenu, String username, int noBank) {
-        
         noBank=2;
         System.out.print("Masukkan Nominal Transfer : ");
         trf = sc1.nextInt();
