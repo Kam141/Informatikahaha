@@ -178,6 +178,7 @@ public class sistem {
                             if (login != -1) {
                                 int ulangMenu = 2;
                                 while (ulangMenu == 2) {
+                                    //tabel menu 
                                     String item2[] = 
                                         { "Setor Tunai", "Tarik Tunai", "Transfer", "Pembayaran Tagihan", "Cek Saldo", "Ubah PIN", "Mutasi Rekening", "Log out"};
                                     tabelTampilan("Pilih menu", item2);
@@ -505,12 +506,17 @@ public class sistem {
                                                     System.out.println("Maaf Kode Operator Tidak Tersedia");
                                                     break;
                                                 }
+
+
+
+                                                
                                             }
 
                                         } else if (pilihTagihan == '4') {
                                             //PILIH MENU TOP UP
                                             String item4[] = {"Link aja", "goPay", "OVO", "Shoppe pay", "Dana"};
                                             tabelTampilan("Pilih MENU TOP UP", item4);
+                                            System.out.println("  ");
                                             
                                             char topUp = sc1.next().charAt(0);
                                             int biayaTopup;
